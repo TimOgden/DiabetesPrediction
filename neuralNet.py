@@ -14,3 +14,6 @@ model = Sequential()
 model.add(Dense(12, input_dim=8, activation='relu')) # only question I have so far: why does the input layer have 12 neurons when there are only 8 inputs?
 model.add(Dense(8, activation='relu'))
 model.add(Dense(1, activation='sigmoid')) # there is only one output neuron and it has a sigmoid function to switch to a 1 when above .5 and 0 when below .5
+model.compile(loss='binary_crossentropy', optomizer='adam', metrics=['accuracy']) # using accuracy because this is a classification problem
+
+model.fit(X,Y, epochs=150, batch_size=10) # batch_size refers to how many instances should run before a weight value is updated.
